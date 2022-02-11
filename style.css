@@ -32,7 +32,7 @@ textarea.mono {
 
 input[type=submit], input[type=button] {
     /*width: 100%;*/
-    background-color: #4CAF50;
+    background-color: #45a049;
     color: white;
     padding: 14px 20px;
     /*margin: 8px 0;*/
@@ -41,14 +41,14 @@ input[type=submit], input[type=button] {
     cursor: pointer;
 }
 input[type=submit]:hover, input[type=button]:hover {
-    background-color: #45a049;
+    background-color: #4CAF50;
 }
 
 input[type=button].warning {
-    background-color: #AF504C;
+    background-color: #a04945;
 }
 input[type=button].warning:hover {
-    background-color: #a04945;
+    background-color: #AF504C;
 }
 
 input[type=button].grayed {
