@@ -123,6 +123,7 @@ input[type=button].grayed:hover {
 .modules>div {
     display: inline-block;
     margin: 1em;
+    margin-top: 0.8em;
 }
 
 #preview {
@@ -192,4 +193,13 @@ h2 {
 
 h3 {
     margin-top: 0em;
+}
+
+.headerBar {
+    background-color: #2f2f2f;
+    padding: 10px;
+}
+
+body {
+    margin: 0px;
 }
