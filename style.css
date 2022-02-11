@@ -58,8 +58,15 @@ input[type=button].grayed:hover {
     background-color: #6a6a6a;
 }
 
+.small-buttons>input[type=button] {
+    padding: 2px 6px 3px 6px;
+    border-radius: 2px;
+    margin-bottom: -10px;
+}
+
+/*
 .button {
-    background-color: #4CAF50; /* Green */
+    background-color: #4CAF50;
     border: none;
     color: white;
     padding: 15px 32px;
@@ -68,6 +75,7 @@ input[type=button].grayed:hover {
     display: inline-block;
     font-size: 16px;
 }
+*/
 
 .container {
     display: flex;
@@ -80,6 +88,14 @@ input[type=button].grayed:hover {
     align-items: baseline;
     justify-content: center;
     margin: 0.5em;
+}
+
+.container3 {
+    display: flex;
+    align-items: baseline;
+    justify-content: right;
+    margin: 0.5em;
+    padding-right: 5px;
 }
 
 .col1 {

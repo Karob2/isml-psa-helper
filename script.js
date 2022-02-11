@@ -5,9 +5,14 @@ function onPageLoad() {
     var psaImageLink = document.getElementById('psaImageLink');
 
     // var psaTest = document.getElementById('psaTest');
-    var psaCopy = document.getElementById('psaCopy');
-    var psaView = document.getElementById('psaView');
+    // var psaCopy = document.getElementById('psaCopy');
+    // var psaView = document.getElementById('psaView');
     var psaFont = document.getElementById('psaFont');
+    var psaLineBreaks = document.getElementById('psaLineBreaks');
+    var copyTitle = document.getElementById('copyTitle');
+    var copyMessage = document.getElementById('copyMessage');
+    var copyImageLink = document.getElementById('copyImageLink');
+
     var psaReset = document.getElementById('psaReset');
     var psaExample = document.getElementById('psaExample');
     var psaUndo = document.getElementById('psaUndo');
@@ -45,13 +50,13 @@ function onPageLoad() {
         updatePreview()
     });
 
-    outputMessage.value = psaMessage.value.replaceAll('\n','!n')
+    outputMessage.value = psaMessage.value.replaceAll('\n', '!n')
     psaMessage.addEventListener('input', () => {
-        outputMessage.value = psaMessage.value.replaceAll('\n','!n')
+        outputMessage.value = psaMessage.value.replaceAll('\n', '!n')
         updatePreview()
     });
     outputMessage.addEventListener('input', () => {
-        psaMessage.value = outputMessage.value.replaceAll('!n','\n')
+        psaMessage.value = outputMessage.value.replaceAll('!n', '\n')
         updatePreview()
     });
 
@@ -69,26 +74,22 @@ function onPageLoad() {
         updatePreview()
     });
 
-    // psaTest.addEventListener('click', () => {
-    //     updatePreview()
+    // psaCopy.addEventListener('click', () => {
+    //     copy(outputMessage.value)
     // });
 
-    psaCopy.addEventListener('click', () => {
-        copy(outputMessage.value)
-    });
-
     outputDiv.style.display = 'none'
-    psaView.addEventListener('click', () => {
-        // copyImageLink.scrollIntoView();
-        psaDiv.style.display = 'none'
-        // previewDiv.style.display = 'none'
-        outputDiv.style.display = 'block'
-    });
-    outputEdit.addEventListener('click', () => {
-        psaDiv.style.display = 'block'
-        // previewDiv.style.display = 'block'
-        outputDiv.style.display = 'none'
-    });
+    // psaView.addEventListener('click', () => {
+    //     // copyImageLink.scrollIntoView();
+    //     psaDiv.style.display = 'none'
+    //     // previewDiv.style.display = 'none'
+    //     outputDiv.style.display = 'block'
+    // });
+    // outputEdit.addEventListener('click', () => {
+    //     psaDiv.style.display = 'block'
+    //     // previewDiv.style.display = 'block'
+    //     outputDiv.style.display = 'none'
+    // });
 
     psaReset.addEventListener('click', () => {
         result = confirm('Remove all text?')
@@ -98,6 +99,12 @@ function onPageLoad() {
     psaFont.addEventListener('click', () => {
         psaMessage.classList.toggle('mono')
         outputMessage.classList.toggle('mono')
+    });
+
+    psaLineBreaks.addEventListener('click', () => {
+        if (psaMessage.value.includes('\n')) psaMessage.value = psaMessage.value.replaceAll('\n', '!n')
+        else psaMessage.value = psaMessage.value.replaceAll('!n', '\n')
+        outputMessage.value = psaMessage.value.replaceAll('\n', '!n')
     });
 
     psaUndo.style.display = 'none'
@@ -153,7 +160,7 @@ function showExample() {
     psaImageLink.value = 'https://i.ytimg.com/vi/em88JdiM8bM/maxresdefault.jpg'
     outputType.value = psaType.options[psaType.selectedIndex].text
     outputTitle.value = psaTitle.value
-    outputMessage.value = psaMessage.value.replaceAll('\n','!n')
+    outputMessage.value = psaMessage.value.replaceAll('\n', '!n')
     outputImageLink.value = psaImageLink.value
     updatePreview()
 }
@@ -165,7 +172,7 @@ function undoExample() {
     psaImageLink.value = imageLinkStorage
     outputType.value = psaType.options[psaType.selectedIndex].text
     outputTitle.value = psaTitle.value
-    outputMessage.value = psaMessage.value.replaceAll('\n','!n')
+    outputMessage.value = psaMessage.value.replaceAll('\n', '!n')
     outputImageLink.value = psaImageLink.value
     updatePreview()
 }
@@ -414,7 +421,7 @@ function formatMessage(message) {
                     if (fwd >= 0) {
                         let code = message.slice(i + 1, fwd)
                         if (emoteLookup.has(code)) formatted.push(`<img src="img/emote/${code}.webp" style="width:1em; max-height:1em;">`)
-                        else if (twaLookup.has(code)) formatted.push(`<i class="twa twa-${code.replaceAll('_','-')}"></i>`)
+                        else if (twaLookup.has(code)) formatted.push(`<i class="twa twa-${code.replaceAll('_', '-')}"></i>`)
                         else formatted.push(`<img src="img/emote/unknown.png" title=":${code}:" alt=":${code}:" style="width:1em; max-height:1em;">`)
                         // formatted.push(`<pre class="special">:${code}:</pre>`)
                         // formatted.push(`❤`)
@@ -479,7 +486,7 @@ function formatMessage(message) {
         let rstr = restoration[stack[i][0]]
         formatted[stack[i][1]] = rstr + formatted[stack[i][1]]
     }
-    return formatted.join('').replaceAll('!n','<br/>')
+    return formatted.join('').replaceAll('!n', '<br/>')
 }
 
 function copy(input) {
