@@ -159,7 +159,7 @@ function undoExample() {
     psaImageLink.value = imageLinkStorage
     outputType.value = psaType.options[psaType.selectedIndex].text
     outputTitle.value = psaTitle.value
-    outputMessage.value = psaMessage.value
+    outputMessage.value = psaMessage.value.replaceAll('\n','!n')
     outputImageLink.value = psaImageLink.value
     updatePreview()
 }
