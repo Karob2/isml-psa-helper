@@ -275,7 +275,8 @@ function updatePreview() {
     // } else if (outputType.value === "Custom") {
     //     imageLink = outputImageLink.value
     // }
-    preview.innerHTML = `<h3>${title}</h3>${message}<br/><br/><img src="${imageLink}">`
+    if (imageLink === '') preview.innerHTML = `<h3>${title}</h3>${message}`
+    else preview.innerHTML = `<h3>${title}</h3>${message}<br/><br/><img src="${imageLink}">`
     /*
     codeBlocks = document.getElementsByClassName('codeblock')
     for (codeBlockOuter of codeBlocks) {
