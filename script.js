@@ -7,6 +7,7 @@ function onPageLoad() {
     // var psaTest = document.getElementById('psaTest');
     var psaCopy = document.getElementById('psaCopy');
     var psaView = document.getElementById('psaView');
+    var psaFont = document.getElementById('psaFont');
     var psaReset = document.getElementById('psaReset');
     var psaExample = document.getElementById('psaExample');
     var psaUndo = document.getElementById('psaUndo');
@@ -92,6 +93,11 @@ function onPageLoad() {
     psaReset.addEventListener('click', () => {
         result = confirm('Remove all text?')
         if (result) resetAll()
+    });
+
+    psaFont.addEventListener('click', () => {
+        psaMessage.classList.toggle('mono')
+        outputMessage.classList.toggle('mono')
     });
 
     psaUndo.style.display = 'none'

@@ -21,10 +21,13 @@ input[type=text], textarea, select {
 }
 
 textarea {
-    /*font-family: inherit;*/
-    font-family: monospace;
+    font-family: inherit;
     font-size: inherit;
     resize: vertical;
+}
+
+textarea.mono {
+    font-family: monospace;
 }
 
 input[type=submit], input[type=button] {
