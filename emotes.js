@@ -4,6 +4,7 @@ const emoteLookup = new Set([
     'metalIcon',
     'silverIcon',
     'rainbowIcon',
+    'shinyIcon',
     'dango~1',
     'isml',
     'melonpan',
